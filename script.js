@@ -3,20 +3,16 @@ function fitAllText() {
 
     elements.forEach(el => {
         let parentWidth = el.parentElement.offsetWidth;
-
         let fontSize = parseFloat(window.getComputedStyle(el).fontSize);
 
-        // Reset first
         el.style.transform = "scaleX(1)";
         el.style.fontSize = fontSize + "px";
 
-        // Shrink loop if needed
         while (el.scrollWidth > parentWidth && fontSize > 8) {
             fontSize -= 0.5;
             el.style.fontSize = fontSize + "px";
         }
 
-        // If still too big, compress horizontally slightly
         if (el.scrollWidth > parentWidth) {
             let scale = parentWidth / el.scrollWidth;
             el.style.transform = `scaleX(${scale})`;
@@ -25,5 +21,33 @@ function fitAllText() {
     });
 }
 
-window.addEventListener("load", fitAllText);
+/* LIVE CLOCK (SECONDS INCLUDED) */
+function updateDateTime() {
+    const now = new Date();
+
+    const timeString = now.toLocaleTimeString(undefined, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+
+    const dateString = now.toLocaleDateString(undefined, {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+
+    document.getElementById("datetime").textContent =
+        `${dateString} • ${timeString}`;
+}
+
+/* INIT */
+window.addEventListener("load", () => {
+    fitAllText();
+    updateDateTime();
+
+    setInterval(updateDateTime, 1000); // ⬅️ now updates every second
+});
+
 window.addEventListener("resize", fitAllText);
