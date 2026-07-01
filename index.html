@@ -11,6 +11,7 @@
     <!-- Google Font Fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
+    <!-- Lovelo Font -->
     <style>
         @font-face {
             font-family: "Lovelo";
@@ -26,24 +27,26 @@
 <body>
 
     <!-- ===========================
-         HEADER
+         HEADER (GRID STRUCTURE READY)
     ============================ -->
 
     <header class="main-header">
 
+        <!-- LEFT: BRAND -->
         <div class="header-left">
 
-            <img src="IMG_4332.jpeg"
-                 class="header-logo"
-                 alt="Avenmark Logo">
+            <img
+                src="IMG_4332.jpeg"
+                class="header-logo"
+                alt="Avenmark Logo">
 
             <div class="title-block">
 
-                <div class="name fit-text">
+                <div class="name">
                     ETHAN MCCAFFREY
                 </div>
 
-                <div class="slogan fit-text">
+                <div class="slogan">
                     MAKING MIDLANDS MORE
                 </div>
 
@@ -51,17 +54,18 @@
 
         </div>
 
+        <!-- RIGHT: NAV -->
         <nav class="header-right">
 
-            <a class="nav-item fit-text" href="#">
+            <a class="nav-item" href="#">
                 ABOUT
             </a>
 
-            <a class="nav-item fit-text" href="#">
+            <a class="nav-item" href="#">
                 ACHIEVEMENTS
             </a>
 
-            <a class="nav-item fit-text message-item" href="#">
+            <a class="nav-item message-item" href="#">
                 ETHAN'S MESSAGE
             </a>
 
@@ -70,34 +74,22 @@
     </header>
 
     <!-- ===========================
-         PAGE CONTENT
-         (Temporary Placeholder)
+         HERO / CONTENT AREA (READY)
     ============================ -->
 
-    <main>
+    <main class="page-content">
 
-        <!--
-            Future sections:
-
-            Hero
-            About
-            Achievements
-            Ethan's Message
-            Contact
-
-            Footer stays at the bottom.
-        -->
+        <!-- Future hero section goes here -->
 
     </main>
 
     <!-- ===========================
-         FOOTER
+         FOOTER (STABLE STRUCTURE)
     ============================ -->
 
     <footer class="main-footer">
 
-        <!-- Brand -->
-
+        <!-- BRAND -->
         <div class="footer-name">
             ETHAN MCCAFFREY
         </div>
@@ -106,18 +98,12 @@
             MAKING MIDLANDS MORE
         </div>
 
-        <!-- Attribution -->
-
-        <a class="footer-owner"
-           href="#"
-           aria-label="Avenmark Digital">
-
+        <!-- OWNER -->
+        <a class="footer-owner" href="#">
             Made by Ethan McCaffrey at Avenmark Digital
-
         </a>
 
-        <!-- Weather -->
-
+        <!-- LOCATION + WEATHER -->
         <div class="footer-weather-line">
 
             <span>Clemson, SC</span>
@@ -130,18 +116,12 @@
 
         </div>
 
-        <!-- Live Time -->
-
-        <div
-            id="datetime"
-            class="footer-time">
-
+        <!-- TIME -->
+        <div id="datetime" class="footer-time">
             Loading date...
-
         </div>
 
-        <!-- Copyright -->
-
+        <!-- COPYRIGHT -->
         <div class="footer-copyright">
 
             <span>
@@ -158,6 +138,7 @@
 
     </footer>
 
+    <!-- SCRIPT -->
     <script src="script.js"></script>
 
 </body>
