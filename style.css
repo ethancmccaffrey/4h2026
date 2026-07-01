@@ -1,0 +1,76 @@
+/* Global background */
+body {
+    margin: 0;
+    background-color: #E8DCC5;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Header */
+.main-header {
+    width: 100%;
+    background-color: #E8DCC5;
+    color: #103159;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+/* Left side: logo + name + tagline */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-logo {
+    height: 85px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Name + tagline */
+.header-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-family: 'Lovelo', sans-serif;
+    font-size: 32px;
+    color: #103159;
+    line-height: 1;
+}
+
+.tagline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #103159;
+    line-height: 1;
+}
+
+/* Right side navigation */
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.nav-item {
+    font-family: 'Lovelo', sans-serif;
+    font-size: 32px;
+    color: #103159;
+    text-decoration: none;
+}
+
+/* Ethan’s Message spacing rule */
+.message-item {
+    letter-spacing: 2px;
+}
