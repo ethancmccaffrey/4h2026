@@ -1,49 +1,46 @@
 /* ==========================================================
-   AVENMARK DIGITAL
-   CLEAN SCRIPT (NO LAYOUT INTERFERENCE)
+   AVENMARK DIGITAL — CLEAN SYSTEM SCRIPT
+   SAFE, SCALABLE, FUTURE-PROOF
 ========================================================== */
 
 
 /* ===========================
-   CLOCK (LIVE TIME)
+   LIVE CLOCK
 =========================== */
 
 function updateDateTime() {
 
+    const el = document.getElementById("datetime");
+    if (!el) return;
+
     const now = new Date();
 
-    const timeString = now.toLocaleTimeString(undefined, {
-
+    const time = now.toLocaleTimeString(undefined, {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit"
-
     });
 
-    const dateString = now.toLocaleDateString(undefined, {
-
+    const date = now.toLocaleDateString(undefined, {
         weekday: "short",
         year: "numeric",
         month: "short",
         day: "numeric"
-
     });
 
-    const el = document.getElementById("datetime");
-
-    if (el) {
-        el.textContent = `${dateString} • ${timeString}`;
-    }
-
+    el.textContent = `${date} • ${time}`;
 }
 
 
 /* ===========================
-   WEATHER (CLEMSON, SC)
-   Open-Meteo (Fahrenheit)
+   WEATHER (OPEN-METEO)
+   Clemson, SC
 =========================== */
 
 async function updateWeather() {
+
+    const el = document.getElementById("weather");
+    if (!el) return;
 
     try {
 
@@ -55,32 +52,26 @@ async function updateWeather() {
             "&temperature_unit=fahrenheit";
 
         const res = await fetch(url);
+
+        if (!res.ok) throw new Error("Weather fetch failed");
+
         const data = await res.json();
 
         const temp = Math.round(data.current_weather.temperature);
         const code = data.current_weather.weathercode;
 
-        const el = document.getElementById("weather");
-
-        if (el) {
-            el.textContent = `${temp}°F • ${weatherCodeToText(code)}`;
-        }
+        el.textContent = `${temp}°F • ${weatherCodeToText(code)}`;
 
     } catch (err) {
 
-        const el = document.getElementById("weather");
-
-        if (el) {
-            el.textContent = "Weather unavailable";
-        }
+        el.textContent = "Weather unavailable";
 
     }
-
 }
 
 
 /* ===========================
-   WEATHER CODE TRANSLATION
+   WEATHER TEXT MAP
 =========================== */
 
 function weatherCodeToText(code) {
@@ -96,20 +87,29 @@ function weatherCodeToText(code) {
     if (code >= 95) return "Thunderstorm";
 
     return "Unknown";
-
 }
 
 
 /* ===========================
-   INIT
+   INITIALIZATION
 =========================== */
 
-window.addEventListener("load", () => {
+function initAvenmark() {
 
+    // run immediately
     updateDateTime();
     updateWeather();
 
+    // update clock every second
     setInterval(updateDateTime, 1000);
-    setInterval(updateWeather, 10 * 60 * 1000);
 
-});
+    // refresh weather every 10 minutes
+    setInterval(updateWeather, 600000);
+}
+
+
+/* ===========================
+   BOOTSTRAP
+=========================== */
+
+window.addEventListener("load", initAvenmark);
