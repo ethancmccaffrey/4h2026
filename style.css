@@ -1,6 +1,6 @@
 /* ==========================================================
-   AVENMARK DIGITAL
-   CLEAN GRID ARCHITECTURE VERSION
+   AVENMARK DIGITAL — FULL HERO SYSTEM
+   GRID + LANDING PAGE ARCHITECTURE
 ========================================================== */
 
 /* ===========================
@@ -21,7 +21,7 @@ body {
     background: #E8DCC5;
     color: #103159;
 
-    font-family: 'Lovelo', 'Montserrat', sans-serif;
+    font-family: "Lovelo", "Montserrat", sans-serif;
 
     min-height: 100vh;
 
@@ -29,14 +29,17 @@ body {
     flex-direction: column;
 }
 
-/* MAIN PAGE AREA */
+/* ===========================
+   PAGE WRAPPER
+=========================== */
+
 .page-content {
     flex: 1;
 }
 
-/* ===========================
-   HEADER (GRID SYSTEM)
-=========================== */
+/* ==========================================================
+   HEADER (FIXED GRID SYSTEM)
+========================================================== */
 
 .main-header {
 
@@ -61,13 +64,10 @@ body {
 /* LEFT SIDE */
 
 .header-left {
-
     display: grid;
     grid-template-columns: auto 1fr;
-
-    align-items: center;
-
     gap: 14px;
+    align-items: center;
 }
 
 .header-logo {
@@ -79,18 +79,16 @@ body {
 .title-block {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 4px;
 }
 
 .name,
 .slogan {
-    font-family: 'Lovelo', 'Montserrat', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: #103159;
     line-height: 1;
     white-space: nowrap;
+    color: #103159;
 }
 
 .name {
@@ -105,25 +103,19 @@ body {
 /* RIGHT NAV */
 
 .header-right {
-
     display: flex;
     flex-direction: column;
-
     align-items: flex-end;
-
     gap: 6px;
 }
 
 .nav-item {
-    font-family: 'Lovelo', 'Montserrat', sans-serif;
     font-weight: 700;
-
-    font-size: clamp(12px, 2vw, 20px);
-
     text-transform: uppercase;
     text-decoration: none;
-
     color: #103159;
+
+    font-size: clamp(12px, 2vw, 20px);
 
     white-space: nowrap;
 
@@ -138,117 +130,227 @@ body {
     letter-spacing: 2px;
 }
 
-/* ===========================
-   FOOTER (CLEAN SYSTEM)
-=========================== */
+/* ==========================================================
+   HERO SECTION (LANDING PAGE CORE)
+========================================================== */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding-top: 90px; /* space for fixed header */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #0F2F55; /* deep Avenmark blue feel */
+}
+
+/* GRID OVERLAY */
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    opacity: 0.2;
+
+    pointer-events: none;
+}
+
+/* DECORATIVE IMAGES */
+
+.hero-image {
+    position: absolute;
+
+    width: clamp(120px, 18vw, 260px);
+
+    opacity: 0.85;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.hero-image-top {
+    top: 20px;
+    left: 20px;
+}
+
+.hero-image-bottom {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* MANIFESTO TEXT */
+
+.hero-manifesto h1 {
+    color: #8A3B32; /* YOUR RED */
+
+    font-size: clamp(20px, 3vw, 42px);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    line-height: 1.4;
+}
+
+/* WELCOME */
+
+.hero-welcome {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.welcome-text {
+    font-style: italic;
+
+    font-size: clamp(18px, 2vw, 26px);
+
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* BUTTON ROW */
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* OVAL BUTTONS */
+
+.hero-button {
+
+    padding: 12px 22px;
+
+    border-radius: 999px;
+
+    background: #8A3B32;
+
+    color: #0F2F55;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: 0.25s ease;
+
+    box-shadow: 0 0 0 rgba(138,59,50,0);
+}
+
+.hero-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 18px rgba(138,59,50,0.6),
+        0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
 
 .main-footer {
 
-    margin-top: 100px;
+    margin-top: 0;
 
     padding: 34px 18px;
 
     background: #E8DCC5;
-    color: #103159;
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
+
     text-align: center;
 
     gap: 10px;
 }
 
-/* BRAND */
-
 .footer-name {
-    font-family: 'Lovelo', 'Montserrat', sans-serif;
-
     font-size: clamp(32px, 5vw, 60px);
     font-weight: 700;
-
     text-transform: uppercase;
-
     line-height: 1;
 }
 
 .footer-tagline {
-    font-family: 'Lovelo', 'Montserrat', sans-serif;
-
     font-size: clamp(12px, 1.4vw, 16px);
-
     font-weight: 700;
-
     text-transform: uppercase;
-
     opacity: 0.85;
-
-    line-height: 1;
 }
 
-/* OWNER */
+/* LINKS + TEXT */
+
+.footer-owner,
+.footer-weather-line,
+.footer-time,
+.footer-copyright {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #103159;
+}
 
 .footer-owner {
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    color: #103159;
-
     text-decoration: none;
-
-    transition: 0.2s ease;
 }
 
 .footer-owner:hover {
     opacity: 0.7;
 }
 
-/* WEATHER ROW */
+/* WEATHER + TIME */
 
-.footer-weather-line {
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-/* TIME */
-
-.footer-time {
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-
-    letter-spacing: 0.3px;
-}
-
-/* COPYRIGHT */
-
+.footer-weather-line,
 .footer-copyright {
-
     display: flex;
-    align-items: center;
-    justify-content: center;
-
     gap: 8px;
-
     flex-wrap: wrap;
+    justify-content: center;
+}
 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
+.footer-divider {
+    opacity: 0.6;
 }
 
 .footer-copyright a {
@@ -260,41 +362,29 @@ body {
     opacity: 0.7;
 }
 
-.footer-divider {
-    opacity: 0.6;
-}
-
-/* ===========================
-   RESPONSIVE FIXES
-=========================== */
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
 
 @media (max-width: 768px) {
 
-    .main-header {
-        padding: 10px 12px;
+    .hero-manifesto h1 {
+        font-size: 18px;
     }
 
-    .header-right {
-        gap: 4px;
-    }
-
-    .main-footer {
-        padding: 28px 14px;
-        gap: 8px;
+    .hero-button {
+        padding: 10px 18px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 430px) {
 
-    .header-logo {
-        height: 48px;
+    .hero-image {
+        width: 120px;
     }
 
-    .footer-name {
-        font-size: 28px;
-    }
-
-    .footer-tagline {
-        font-size: 12px;
+    .welcome-text {
+        font-size: 16px;
     }
 }
