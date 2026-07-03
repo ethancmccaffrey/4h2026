@@ -1,289 +1,160 @@
-/* ==========================================================
-   AVENMARK DIGITAL — PREMIUM STRUCTURE SYSTEM
-   Clean Hero Architecture • Stable Bridge Layer • Responsive
-========================================================== */
-
-/* =========================
-   GLOBAL RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: "Lovelo", "Montserrat", sans-serif;
     background: #E8DCC5;
     color: #103159;
-    min-height: 100vh;
-    overflow-x: hidden;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
-.main-header {
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: #E8DCC5;
-    display: grid;
-    grid-template-columns: 1fr auto;
+
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+
     padding: 12px 16px;
     z-index: 1000;
 }
 
 .header-left {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.header-logo {
-    height: 58px;
-    width: auto;
-}
-
-.title-block {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.logo {
+    height: 55px;
 }
 
 .name {
-    font-size: 20px;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    font-size: 18px;
 }
 
-.slogan {
-    font-size: 13px;
-    opacity: 0.85;
-    letter-spacing: 0.06em;
+.tagline {
+    font-size: 12px;
+    opacity: 0.8;
 }
 
 .header-right {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
+    gap: 14px;
 }
 
-.nav-item {
+.header-right a {
     text-decoration: none;
-    font-weight: 700;
-    font-size: 13px;
     color: #103159;
-    letter-spacing: 0.05em;
-    transition: 0.2s ease;
+    font-weight: 700;
+    font-size: 12px;
 }
 
-.nav-item:hover {
-    opacity: 0.65;
-}
-
-/* =========================
-   HERO (PURE VISUAL SYSTEM)
-========================= */
+/* ================= HERO ================= */
 
 .hero {
     position: relative;
     min-height: 100vh;
-    padding-top: 110px;
+    padding-top: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     overflow: hidden;
 }
 
-/* GRID (non-intrusive background layer) */
-.hero-grid {
+/* GRID */
+.grid {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(#10315918 1px, transparent 1px),
-        linear-gradient(90deg, #10315918 1px, transparent 1px);
-    background-size: 34px 34px;
-    opacity: 0.6;
-    pointer-events: none;
+        linear-gradient(rgba(16,49,89,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,49,89,0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.4;
 }
 
-/* IMAGES (clean, non-rotated, stable) */
-.hero-image {
+/* IMAGES */
+.img {
     position: absolute;
-    width: clamp(240px, 30vw, 420px);
+    width: 260px;
     height: auto;
     object-fit: cover;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
-    border-radius: 0;
 }
 
-.hero-image-top {
-    top: 130px;
-    left: 40px;
+.top-left {
+    top: 120px;
+    left: 20px;
 }
 
-.hero-image-bottom {
-    bottom: 90px;
-    right: 40px;
+.bottom-right {
+    bottom: 40px;
+    right: 20px;
 }
 
-/* CENTER MANIFESTO */
-.hero-content {
-    position: relative;
-    z-index: 2;
+/* CENTER CONTENT */
+.hero-center {
     text-align: center;
-    padding: 0 20px;
-    margin-top: 140px;
-}
+    z-index: 2;
 
-.hero-manifesto {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
-.hero-manifesto h1 {
-    font-size: clamp(28px, 4vw, 56px);
-    letter-spacing: 0.14em;
+.lines div {
+    font-size: 28px;
     font-weight: 700;
-    line-height: 1.2;
-    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* =========================
-   BRIDGE LAYER (VISIBLE UI)
-   This is NOT inside hero layout system
-========================= */
-
-.hero-bridge {
-    position: relative;
-    z-index: 5;
-    background: #E8DCC5;
-    padding: 50px 20px 70px;
-    text-align: center;
-
-    /* subtle overlap into hero for cohesion */
-    margin-top: -30px;
-}
-
-.welcome-text {
+/* WELCOME */
+.welcome {
     font-style: italic;
-    font-size: clamp(20px, 2.5vw, 30px);
-    margin-bottom: 22px;
-    opacity: 0.9;
+    font-size: 20px;
 }
 
-/* BUTTON ROW */
-.hero-buttons {
+/* BUTTONS */
+.buttons {
     display: flex;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 14px;
 }
 
-/* OVAL BUTTONS (premium + stable glow) */
-.hero-button {
-    padding: 12px 26px;
-    border-radius: 999px;
+.buttons a {
     background: #8A3B32;
     color: #E8DCC5;
+    padding: 10px 18px;
+    border-radius: 999px;
     text-decoration: none;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    font-size: 13px;
-    transition: 0.25s ease;
-    border: 1px solid rgba(16,49,89,0.25);
+    font-size: 12px;
 }
 
-.hero-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(16,49,89,0.35);
-}
+/* ================= FOOTER ================= */
 
-/* =========================
-   FUTURE CONTENT AREA
-========================= */
-
-section {
-    padding: 80px 20px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.main-footer {
+.footer {
+    padding: 30px;
     text-align: center;
-    padding: 40px 20px;
-    background: #E8DCC5;
 }
 
-.footer-name {
-    font-size: clamp(28px, 4vw, 48px);
+.footer-title {
+    font-size: 28px;
     font-weight: 700;
 }
 
-.footer-tagline {
-    font-size: 13px;
+.footer-sub {
+    font-size: 12px;
     opacity: 0.8;
-    margin-bottom: 10px;
-}
-
-.footer-owner,
-.footer-weather-line,
-.footer-time,
-.footer-copyright {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.footer-divider {
-    opacity: 0.5;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-
-    .hero-image {
-        width: 260px;
-    }
-
-    .hero-image-top {
-        left: 20px;
-        top: 120px;
-    }
-
-    .hero-image-bottom {
-        right: 20px;
-        bottom: 60px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .hero-manifesto h1 {
-        font-size: 22px;
-        letter-spacing: 0.1em;
-    }
-
-    .hero-bridge {
-        padding: 40px 16px 60px;
-    }
-
-    .hero-button {
-        font-size: 12px;
-        padding: 10px 18px;
-    }
 }
