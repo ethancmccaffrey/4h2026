@@ -2,10 +2,8 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Avenmark Digital</title>
 
     <!-- Google Font Fallback -->
@@ -21,200 +19,91 @@
     </style>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<!-- ==========================================================
-HEADER
-========================================================== -->
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-left">
+            <img src="IMG_4332.jpeg" class="header-logo" alt="Avenmark Logo">
 
-<header class="main-header">
-
-    <div class="header-left">
-
-        <img
-            src="IMG_4332.jpeg"
-            class="header-logo"
-            alt="Avenmark Logo">
-
-        <div class="title-block">
-
-            <div class="name">
-                ETHAN MCCAFFREY
+            <div class="title-block">
+                <div class="name">ETHAN MCCAFFREY</div>
+                <div class="slogan">MAKING MIDLANDS MORE</div>
             </div>
-
-            <div class="slogan">
-                MAKING MIDLANDS MORE
-            </div>
-
         </div>
 
-    </div>
+        <nav class="header-right">
+            <a href="#about" class="nav-item">ABOUT</a>
+            <a href="#achievements" class="nav-item">ACHIEVEMENTS</a>
+            <a href="#message" class="nav-item message-item">ETHAN'S MESSAGE</a>
+        </nav>
+    </header>
 
-    <nav class="header-right">
+    <!-- LANDING PAGE / HERO -->
+    <main class="page-content">
+        <section class="hero">
 
-        <a href="#about" class="nav-item">
-            ABOUT
-        </a>
+            <!-- Decorative Images -->
+            <img src="IMG_5039.jpeg" class="hero-image hero-image-top" alt="Portrait">
+            <img src="IMG_5259.jpeg" class="hero-image hero-image-bottom" alt="Portrait">
 
-        <a href="#achievements" class="nav-item">
-            ACHIEVEMENTS
-        </a>
+            <!-- Grid Overlay -->
+            <div class="hero-grid"></div>
 
-        <a href="#message" class="nav-item message-item">
-            ETHAN'S MESSAGE
-        </a>
+            <!-- Main Content -->
+            <div class="hero-content">
 
-    </nav>
+                <!-- Manifesto -->
+                <div class="hero-manifesto">
+                    <h1>SERVING RESPONSIBLY</h1>
+                    <h1>LEADING WITH CONSISTENCY</h1>
+                    <h1>BUILDING CONNECTIONS</h1>
+                </div>
 
-</header>
+                <!-- Welcome + Buttons -->
+                <div class="hero-welcome">
+                    <p class="welcome-text">Welcome.</p>
 
-<!-- ==========================================================
-LANDING PAGE / HERO
-========================================================== -->
-
-<main class="page-content">
-
-    <section class="hero">
-
-        <!-- Decorative Images -->
-
-        <img
-            src="IMG_5039.jpeg"
-            class="hero-image hero-image-top"
-            alt="Portrait">
-
-        <img
-            src="IMG_5259.jpeg"
-            class="hero-image hero-image-bottom"
-            alt="Portrait">
-
-        <!-- Grid Overlay -->
-
-        <div class="hero-grid"></div>
-
-        <!-- Main Content -->
-
-        <div class="hero-content">
-
-            <div class="hero-manifesto">
-
-                <h1>SERVING RESPONSIBLY</h1>
-
-                <h1>LEADING WITH CONSISTENCY</h1>
-
-                <h1>BUILDING CONNECTIONS.</h1>
-
-            </div>
-
-            <div class="hero-welcome">
-
-                <p class="welcome-text">
-                    Welcome.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#about" class="hero-button">
-                        ABOUT
-                    </a>
-
-                    <a href="#achievements" class="hero-button">
-                        ACHIEVEMENTS
-                    </a>
-
-                    <a href="#message" class="hero-button">
-                        ETHAN'S MESSAGE
-                    </a>
-
+                    <div class="hero-buttons">
+                        <a href="#about" class="hero-button">ABOUT</a>
+                        <a href="#achievements" class="hero-button">ACHIEVEMENTS</a>
+                        <a href="#message" class="hero-button">ETHAN'S MESSAGE</a>
+                    </div>
                 </div>
 
             </div>
+        </section>
 
+        <!-- FUTURE CONTENT SECTIONS -->
+        <section id="about"></section>
+        <section id="achievements"></section>
+        <section id="message"></section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-name">ETHAN MCCAFFREY</div>
+        <div class="footer-tagline">MAKING MIDLANDS MORE</div>
+
+        <a href="#" class="footer-owner">Made by Ethan McCaffrey at Avenmark Digital</a>
+
+        <div class="footer-weather-line">
+            <span>Clemson, SC</span>
+            <span class="footer-divider">•</span>
+            <span id="weather">Loading weather ...</span>
         </div>
 
-    </section>
+        <div id="datetime" class="footer-time">Loading date ...</div>
 
-    <!-- ======================================================
-    FUTURE CONTENT SECTIONS
-    ======================================================= -->
+        <div class="footer-copyright">
+            <span>@ <span id="year">2026</span></span>
+            <span class="footer-divider">•</span>
+            <a href="#">Avenmark Digital Development</a>
+        </div>
+    </footer>
 
-    <section id="about"></section>
-
-    <section id="achievements"></section>
-
-    <section id="message"></section>
-
-</main>
-
-<!-- ==========================================================
-FOOTER
-========================================================== -->
-
-<footer class="main-footer">
-
-    <div class="footer-name">
-        ETHAN MCCAFFREY
-    </div>
-
-    <div class="footer-tagline">
-        MAKING MIDLANDS MORE
-    </div>
-
-    <a
-        href="#"
-        class="footer-owner">
-
-        Made by Ethan McCaffrey at Avenmark Digital
-
-    </a>
-
-    <div class="footer-weather-line">
-
-        <span>
-            Clemson, SC
-        </span>
-
-        <span class="footer-divider">
-            •
-        </span>
-
-        <span id="weather">
-            Loading weather...
-        </span>
-
-    </div>
-
-    <div
-        id="datetime"
-        class="footer-time">
-
-        Loading date...
-
-    </div>
-
-    <div class="footer-copyright">
-
-        <span>
-            © <span id="year">2026</span>
-        </span>
-
-        <span class="footer-divider">
-            •
-        </span>
-
-        <a href="#">
-            Avenmark Digital Development
-        </a>
-
-    </div>
-
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
