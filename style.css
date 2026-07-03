@@ -1,5 +1,5 @@
 /* ============================================================
-   AVENMARK DIGITAL — TRANSFORMED STYLE SYSTEM
+   AVENMARK DIGITAL — FINAL TRANSFORMED STYLE SYSTEM
    Spider‑web grid • Suspended images • Monumental manifesto
    ============================================================ */
 
@@ -106,20 +106,20 @@ body {
 }
 
 /* ============================================================
-   HERO SECTION — SPIDER‑WEB GRID COMPOSITION
+   HERO — SPIDER‑WEB GRID COMPOSITION
    ============================================================ */
 
 .hero {
     position: relative;
     height: 100vh;
-    padding-top: 110px; /* clear header */
+    padding-top: 120px; /* clear header */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-/* GRID OVERLAY — strong, web‑like */
+/* GRID — strong, visible, architectural */
 .hero-grid {
     position: absolute;
     inset: 0;
@@ -129,13 +129,13 @@ body {
     background-size: 28px 28px;
     opacity: 0.55;
     pointer-events: none;
-    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s ease;
 }
 
-/* SUSPENDED IMAGES — large, anchored */
+/* SUSPENDED IMAGES — huge, anchored */
 .hero-image {
     position: absolute;
-    width: clamp(240px, 28vw, 380px);
+    width: clamp(320px, 40vw, 680px);
     opacity: 0.95;
     object-fit: cover;
     border-radius: 0;
@@ -145,19 +145,19 @@ body {
 }
 
 .hero-image-top {
-    top: 130px;
+    top: 160px;
     left: 40px;
     transform: rotate(-2deg);
 }
 
 .hero-image-bottom {
-    bottom: 60px;
+    bottom: 80px;
     right: 40px;
     transform: rotate(2deg);
 }
 
 .hero-image:hover {
-    transform: scale(1.03) rotate(0deg);
+    transform: scale(1.03);
     box-shadow: 0 32px 80px rgba(0,0,0,0.45);
 }
 
@@ -173,7 +173,7 @@ body {
     padding: 0 24px;
 }
 
-/* MANIFESTO — monumental, etched into grid */
+/* MANIFESTO — monumental */
 .hero-manifesto {
     display: flex;
     flex-direction: column;
@@ -189,9 +189,10 @@ body {
     line-height: 1.15;
     position: relative;
     text-shadow: 0 0 12px rgba(232,220,197,0.4);
+    opacity: 1;
 }
 
-/* subtle underline aligned with grid */
+/* underline aligned with grid */
 .manifesto-line::after {
     content: "";
     position: absolute;
@@ -209,7 +210,20 @@ body {
     opacity: 0.7;
 }
 
-/* WELCOME — soft, floating */
+/* ============================================================
+   HERO LOWER — WELCOME + BUTTON FOUNDATION
+   ============================================================ */
+
+.hero-lower {
+    background: #E8DCC5;
+    padding: 40px 18px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    margin-top: -40px; /* pull upward into hero */
+}
+
 .welcome-text {
     font-style: italic;
     font-size: clamp(22px, 2.8vw, 34px);
@@ -218,18 +232,7 @@ body {
     letter-spacing: 0.08em;
 }
 
-/* ============================================================
-   HERO LOWER — BUTTON FOUNDATION
-   ============================================================ */
-
-.hero-lower {
-    background: #E8DCC5;
-    padding: 32px 18px 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* BUTTONS */
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -241,8 +244,8 @@ body {
 .hero-button {
     padding: 14px 30px;
     border-radius: 999px;
-    background: #8A3B32;      /* red */
-    color: #E8DCC5;           /* tan */
+    background: #8A3B32; /* red */
+    color: #E8DCC5;      /* tan */
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
@@ -334,86 +337,40 @@ body {
 
 @media (max-width: 1024px) {
     .hero-image {
-        width: clamp(220px, 30vw, 320px);
-    }
-    .hero-image-top {
-        top: 140px;
-        left: 24px;
-    }
-    .hero-image-bottom {
-        bottom: 50px;
-        right: 24px;
+        width: clamp(280px, 38vw, 520px);
     }
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 120px;
-    }
-
-    .hero-image {
-        width: 200px;
-    }
-
-    .hero-image-top {
-        top: 150px;
-        left: 12px;
-    }
-
-    .hero-image-bottom {
-        bottom: 40px;
-        right: 12px;
-    }
-
-    .manifesto-line {
-        font-size: 26px;
-        letter-spacing: 0.12em;
-    }
-
-    .hero-buttons {
-        gap: 14px;
-    }
-
-    .hero-button {
-        padding: 10px 22px;
-        font-size: 11px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
         padding-top: 130px;
     }
 
     .hero-image {
-        width: 160px;
-        box-shadow: 0 18px 40px rgba(0,0,0,0.3);
-    }
-
-    .hero-image-top {
-        top: 150px;
-        left: 8px;
-    }
-
-    .hero-image-bottom {
-        bottom: 30px;
-        right: 8px;
-    }
-
-    .hero-content {
-        gap: 24px;
+        width: clamp(240px, 42vw, 420px);
     }
 
     .manifesto-line {
-        font-size: 20px;
-        letter-spacing: 0.1em;
+        font-size: 28px;
+        letter-spacing: 0.12em;
+    }
+
+    .hero-button {
+        padding: 12px 24px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        width: clamp(200px, 48vw, 360px);
+    }
+
+    .manifesto-line {
+        font-size: 22px;
     }
 
     .welcome-text {
-        font-size: 16px;
-    }
-
-    .hero-lower {
-        padding: 26px 12px 40px;
+        font-size: 18px;
     }
 }
