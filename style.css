@@ -1,12 +1,9 @@
-/* ==========================================================
-   AVENMARK DIGITAL — FULL HERO SYSTEM
-   GRID + LANDING PAGE ARCHITECTURE
-========================================================== */
+/* ============================================================
+   AVENMARK DIGITAL — COMPLETE STYLE SYSTEM (REBUILT)
+   Clean grid hero • Sharp images • Glowing buttons • Beige base
+   ============================================================ */
 
-/* ===========================
-   GLOBAL RESET
-=========================== */
-
+/* GLOBAL RESET */
 * {
     margin: 0;
     padding: 0;
@@ -18,50 +15,35 @@ html {
 }
 
 body {
-    background: #E8DCC5;
-    color: #103159;
-
+    background: #E8DCC5; /* Avenmark beige */
+    color: #103159;      /* Avenmark blue */
     font-family: "Lovelo", "Montserrat", sans-serif;
-
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
 }
 
-/* ===========================
-   PAGE WRAPPER
-=========================== */
-
+/* PAGE WRAPPER */
 .page-content {
     flex: 1;
 }
 
-/* ==========================================================
-   HEADER (FIXED GRID SYSTEM)
-========================================================== */
+/* ============================================================
+   HEADER (UNCHANGED — DO NOT MODIFY)
+   ============================================================ */
 
 .main-header {
-
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
-
     background: #E8DCC5;
-
     display: grid;
     grid-template-columns: 1fr auto;
-
     align-items: center;
-
     padding: 12px 16px;
-
     z-index: 1000;
 }
-
-/* LEFT SIDE */
 
 .header-left {
     display: grid;
@@ -73,8 +55,6 @@ body {
 .header-logo {
     height: clamp(45px, 6vw, 75px);
 }
-
-/* BRAND TEXT */
 
 .title-block {
     display: flex;
@@ -100,8 +80,6 @@ body {
     opacity: 0.9;
 }
 
-/* RIGHT NAV */
-
 .header-right {
     display: flex;
     flex-direction: column;
@@ -114,11 +92,8 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     color: #103159;
-
     font-size: clamp(12px, 2vw, 20px);
-
     white-space: nowrap;
-
     transition: 0.2s ease;
 }
 
@@ -130,101 +105,73 @@ body {
     letter-spacing: 2px;
 }
 
-/* ==========================================================
-   HERO SECTION (LANDING PAGE CORE)
-========================================================== */
+/* ============================================================
+   HERO SECTION — FULL REBUILD
+   ============================================================ */
 
 .hero {
-
     position: relative;
-
-    min-height: 100vh;
-
-    padding-top: 90px; /* space for fixed header */
-
+    height: 100vh; /* Full screen */
+    padding-top: 100px; /* Space for fixed header */
     display: flex;
     justify-content: center;
     align-items: center;
-
     overflow: hidden;
-
-    background: #0F2F55; /* deep Avenmark blue feel */
 }
 
-/* GRID OVERLAY */
-
+/* GRID OVERLAY — literal squares */
 .hero-grid {
     position: absolute;
     inset: 0;
-
     background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-
-    background-size: 60px 60px;
-
-    opacity: 0.2;
-
+        linear-gradient(#10315922 1px, transparent 1px),
+        linear-gradient(90deg, #10315922 1px, transparent 1px);
+    background-size: 40px 40px; /* tighter grid */
+    opacity: 0.35; /* more visible */
     pointer-events: none;
 }
 
-/* DECORATIVE IMAGES */
-
+/* DECORATIVE IMAGES — sharp corners, larger */
 .hero-image {
     position: absolute;
-
-    width: clamp(120px, 18vw, 260px);
-
-    opacity: 0.85;
-
+    width: clamp(180px, 22vw, 320px);
+    opacity: 0.9;
     object-fit: cover;
-
-    border-radius: 10px;
-
+    border-radius: 0; /* sharp */
     box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
 .hero-image-top {
-    top: 20px;
-    left: 20px;
+    top: 30px;
+    left: 30px;
 }
 
 .hero-image-bottom {
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
 }
 
-/* CONTENT */
-
+/* MAIN CONTENT */
 .hero-content {
     position: relative;
     z-index: 2;
-
     text-align: center;
-
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-/* MANIFESTO TEXT */
-
+/* MANIFESTO TEXT — your blue */
 .hero-manifesto h1 {
-    color: #8A3B32; /* YOUR RED */
-
-    font-size: clamp(20px, 3vw, 42px);
-
+    color: #103159; /* Avenmark blue */
+    font-size: clamp(24px, 3.5vw, 48px);
     font-weight: 700;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
-
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 /* WELCOME */
-
 .hero-welcome {
     display: flex;
     flex-direction: column;
@@ -233,75 +180,52 @@ body {
 
 .welcome-text {
     font-style: italic;
-
-    font-size: clamp(18px, 2vw, 26px);
-
-    color: #ffffff;
+    font-size: clamp(20px, 2.5vw, 32px);
+    color: #103159;
     opacity: 0.9;
 }
 
 /* BUTTON ROW */
-
 .hero-buttons {
     display: flex;
-    gap: 14px;
+    gap: 18px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-/* OVAL BUTTONS */
-
+/* OVAL BUTTONS — glowing */
 .hero-button {
-
-    padding: 12px 22px;
-
+    padding: 14px 26px;
     border-radius: 999px;
-
-    background: #8A3B32;
-
-    color: #0F2F55;
-
+    background: #8A3B32; /* your red */
+    color: #103159;      /* your blue */
     text-decoration: none;
-
     font-weight: 700;
-
     text-transform: uppercase;
-
     letter-spacing: 1px;
-
     transition: 0.25s ease;
-
-    box-shadow: 0 0 0 rgba(138,59,50,0);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
 .hero-button:hover {
-
-    transform: translateY(-2px);
-
+    transform: translateY(-3px);
     box-shadow:
         0 0 18px rgba(138,59,50,0.6),
         0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* ==========================================================
-   FOOTER
-========================================================== */
+/* ============================================================
+   FOOTER (UNCHANGED)
+   ============================================================ */
 
 .main-footer {
-
     margin-top: 0;
-
     padding: 34px 18px;
-
     background: #E8DCC5;
-
     display: flex;
     flex-direction: column;
-
     align-items: center;
-
     text-align: center;
-
     gap: 10px;
 }
 
@@ -318,8 +242,6 @@ body {
     text-transform: uppercase;
     opacity: 0.85;
 }
-
-/* LINKS + TEXT */
 
 .footer-owner,
 .footer-weather-line,
@@ -338,8 +260,6 @@ body {
 .footer-owner:hover {
     opacity: 0.7;
 }
-
-/* WEATHER + TIME */
 
 .footer-weather-line,
 .footer-copyright {
@@ -362,16 +282,14 @@ body {
     opacity: 0.7;
 }
 
-/* ==========================================================
+/* ============================================================
    RESPONSIVE
-========================================================== */
+   ============================================================ */
 
 @media (max-width: 768px) {
-
     .hero-manifesto h1 {
-        font-size: 18px;
+        font-size: 20px;
     }
-
     .hero-button {
         padding: 10px 18px;
         font-size: 12px;
@@ -379,11 +297,9 @@ body {
 }
 
 @media (max-width: 430px) {
-
     .hero-image {
-        width: 120px;
+        width: 140px;
     }
-
     .welcome-text {
         font-size: 16px;
     }
