@@ -1,6 +1,6 @@
 /* ============================================================
-   AVENMARK DIGITAL — CLEAN SYSTEM SCRIPT (FULL REWRITE)
-   Stable • Correct selectors • Working weather + clock
+   AVENMARK DIGITAL — FULL INTERACTION SCRIPT
+   Spider‑web grid • Suspended images • Monumental manifesto
    ============================================================ */
 
 
@@ -76,18 +76,115 @@ function weatherCodeToText(code) {
 }
 
 
-/* ------------------------------------------------------------
+/* ============================================================
+   SPIDER‑WEB GRID PARALLAX
+   ============================================================ */
+
+function initGridParallax() {
+    const grid = document.querySelector(".hero-grid");
+    if (!grid) return;
+
+    window.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 10;
+        const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+        grid.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY * 0.1;
+        grid.style.transform = `translateY(${scrollY}px)`;
+    });
+}
+
+
+/* ============================================================
+   SUSPENDED IMAGE FLOATING
+   ============================================================ */
+
+function initImageFloat() {
+    const topImg = document.querySelector(".hero-image-top");
+    const bottomImg = document.querySelector(".hero-image-bottom");
+
+    if (!topImg || !bottomImg) return;
+
+    window.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 8;
+        const y = (e.clientY / window.innerHeight - 0.5) * 8;
+
+        topImg.style.transform = `translate(${x}px, ${y}px) rotate(-2deg)`;
+        bottomImg.style.transform = `translate(${-x}px, ${-y}px) rotate(2deg)`;
+    });
+}
+
+
+/* ============================================================
+   MANIFESTO TEXT REVEAL
+   ============================================================ */
+
+function initManifestoReveal() {
+    const lines = document.querySelectorAll(".manifesto-line");
+    if (!lines.length) return;
+
+    const reveal = () => {
+        lines.forEach((line, i) => {
+            setTimeout(() => {
+                line.style.opacity = "1";
+                line.style.transform = "translateY(0)";
+            }, i * 250);
+        });
+    };
+
+    lines.forEach((line) => {
+        line.style.opacity = "0";
+        line.style.transform = "translateY(40px)";
+        line.style.transition = "all 0.8s ease";
+    });
+
+    window.addEventListener("load", reveal);
+}
+
+
+/* ============================================================
+   BUTTON FOUNDATION EASING
+   ============================================================ */
+
+function initButtonFoundation() {
+    const lower = document.querySelector(".hero-lower");
+    if (!lower) return;
+
+    lower.style.opacity = "0";
+    lower.style.transform = "translateY(40px)";
+    lower.style.transition = "all 0.8s ease";
+
+    const revealLower = () => {
+        lower.style.opacity = "1";
+        lower.style.transform = "translateY(0)";
+    };
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > window.innerHeight * 0.3) {
+            revealLower();
+        }
+    });
+}
+
+
+/* ============================================================
    INITIALIZATION
-   ------------------------------------------------------------ */
+   ============================================================ */
+
 function initAvenmark() {
     updateDateTime();
     updateWeather();
 
-    // Update clock every second
     setInterval(updateDateTime, 1000);
-
-    // Refresh weather every 10 minutes
     setInterval(updateWeather, 600000);
+
+    initGridParallax();
+    initImageFloat();
+    initManifestoReveal();
+    initButtonFoundation();
 }
 
 
