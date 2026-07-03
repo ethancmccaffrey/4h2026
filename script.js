@@ -1,194 +1,295 @@
 /* ============================================================
-   AVENMARK DIGITAL — FINAL INTERACTION SCRIPT
-   Spider‑web grid • Suspended images • Monumental manifesto
-   ============================================================ */
+   AVENMARK DIGITAL — STRUCTURED HERO SYSTEM (STABLE)
+============================================================ */
 
-
-/* ------------------------------------------------------------
-   LIVE CLOCK
-   ------------------------------------------------------------ */
-function updateDateTime() {
-    const el = document.getElementById("datetime");
-    if (!el) return;
-
-    const now = new Date();
-
-    const time = now.toLocaleTimeString(undefined, {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-    });
-
-    const date = now.toLocaleDateString(undefined, {
-        weekday: "short",
-        year: "numeric",
-        month: "short",
-        day: "numeric"
-    });
-
-    el.textContent = `${date} • ${time}`;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/* ------------------------------------------------------------
-   WEATHER — OPEN METEO (Clemson, SC)
-   ------------------------------------------------------------ */
-async function updateWeather() {
-    const el = document.getElementById("weather");
-    if (!el) return;
-
-    try {
-        const url =
-            "https://api.open-meteo.com/v1/forecast" +
-            "?latitude=34.6834" +
-            "&longitude=-82.8374" +
-            "&current_weather=true" +
-            "&temperature_unit=fahrenheit";
-
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Weather fetch failed");
-
-        const data = await res.json();
-        const temp = Math.round(data.current_weather.temperature);
-        const code = data.current_weather.weathercode;
-
-        el.textContent = `${temp}ºF • ${weatherCodeToText(code)}`;
-    } catch (err) {
-        el.textContent = "Weather unavailable";
-    }
+html {
+    scroll-behavior: smooth;
 }
 
-
-/* ------------------------------------------------------------
-   WEATHER CODE → TEXT
-   ------------------------------------------------------------ */
-function weatherCodeToText(code) {
-    if (code === 0) return "Clear";
-    if (code <= 2) return "Partly Cloudy";
-    if (code <= 3) return "Cloudy";
-    if (code <= 48) return "Foggy";
-    if (code <= 67) return "Rain";
-    if (code <= 77) return "Snow";
-    if (code <= 82) return "Showers";
-    if (code <= 86) return "Snow Showers";
-    if (code >= 95) return "Thunderstorm";
-    return "Unknown";
+body {
+    font-family: "Lovelo", "Montserrat", sans-serif;
+    background: #E8DCC5;
+    color: #103159;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* PAGE WRAPPER */
+.page-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 /* ============================================================
-   SPIDER‑WEB GRID PARALLAX
-   ============================================================ */
+   HEADER (UNCHANGED STRUCTURE, STABLE)
+============================================================ */
 
-function initGridParallax() {
-    const grid = document.querySelector(".hero-grid");
-    if (!grid) return;
-
-    window.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 12;
-        const y = (e.clientY / window.innerHeight - 0.5) * 12;
-
-        grid.style.transform = `translate(${x}px, ${y}px)`;
-    });
-
-    window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY * 0.15;
-        grid.style.transform = `translateY(${scrollY}px)`;
-    });
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #E8DCC5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 12px 16px;
+    z-index: 1000;
 }
 
+.header-left {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: center;
+}
+
+.header-logo {
+    height: clamp(45px, 6vw, 75px);
+}
+
+.title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.name,
+.slogan {
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+    color: #103159;
+}
+
+.name {
+    font-size: clamp(14px, 2.2vw, 26px);
+}
+
+.slogan {
+    font-size: clamp(12px, 1.5vw, 18px);
+    opacity: 0.9;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.nav-item {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #103159;
+    font-size: clamp(12px, 2vw, 20px);
+}
+
+.nav-item:hover {
+    opacity: 0.7;
+}
 
 /* ============================================================
-   SUSPENDED IMAGE FLOATING (680px max)
-   ============================================================ */
+   HERO — CONTROLLED GRID ARCHITECTURE (FIXED)
+============================================================ */
 
-function initImageFloat() {
-    const topImg = document.querySelector(".hero-image-top");
-    const bottomImg = document.querySelector(".hero-image-bottom");
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
 
-    if (!topImg || !bottomImg) return;
+    padding-top: 110px;
+    padding-bottom: 60px;
 
-    window.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 10;
-        const y = (e.clientY / window.innerHeight - 0.5) * 10;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    align-items: center;
 
-        topImg.style.transform = `translate(${x}px, ${y}px) rotate(-2deg)`;
-        bottomImg.style.transform = `translate(${-x}px, ${-y}px) rotate(2deg)`;
-    });
+    background: #E8DCC5;
+    overflow: hidden;
 }
 
+/* GRID BACKDROP */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(16,49,89,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,49,89,0.12) 1px, transparent 1px);
+
+    background-size: 34px 34px;
+
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* IMAGES — NO ANGLE, CLEAN PREMIUM */
+.hero-image {
+    position: absolute;
+    width: clamp(240px, 32vw, 520px);
+    height: auto;
+
+    border-radius: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    object-fit: cover;
+}
+
+.hero-image-top {
+    top: 140px;
+    left: 40px;
+}
+
+.hero-image-bottom {
+    bottom: 80px;
+    right: 40px;
+}
 
 /* ============================================================
-   MANIFESTO TEXT REVEAL
-   ============================================================ */
+   MANIFESTO (CENTER ZONE)
+============================================================ */
 
-function initManifestoReveal() {
-    const lines = document.querySelectorAll(".manifesto-line");
-    if (!lines.length) return;
+.hero-manifesto {
+    z-index: 2;
+    text-align: center;
 
-    lines.forEach((line) => {
-        line.style.opacity = "0";
-        line.style.transform = "translateY(40px)";
-        line.style.transition = "all 0.8s ease";
-    });
-
-    const reveal = () => {
-        lines.forEach((line, i) => {
-            setTimeout(() => {
-                line.style.opacity = "1";
-                line.style.transform = "translateY(0)";
-            }, i * 250);
-        });
-    };
-
-    window.addEventListener("load", reveal);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
+.manifesto-line {
+    font-size: clamp(28px, 4vw, 64px);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #103159;
+}
 
 /* ============================================================
-   BUTTON FOUNDATION EASING
-   ============================================================ */
+   LOWER SECTION (VISIBLE + SAFE OUTSIDE GRID COLLAPSE)
+============================================================ */
 
-function initButtonFoundation() {
-    const lower = document.querySelector(".hero-lower");
-    if (!lower) return;
+.hero-lower {
+    width: 100%;
+    max-width: 1100px;
 
-    lower.style.opacity = "0";
-    lower.style.transform = "translateY(40px)";
-    lower.style.transition = "all 0.8s ease";
+    margin-top: 40px;
 
-    const revealLower = () => {
-        lower.style.opacity = "1";
-        lower.style.transform = "translateY(0)";
-    };
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > window.innerHeight * 0.15) {
-            revealLower();
-        }
-    });
+    z-index: 3;
 }
 
+.welcome-text {
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 32px);
+    color: #103159;
+}
+
+/* BUTTON ROW */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* BUTTONS — RED CORE + BLUE GLOW */
+.hero-button {
+    padding: 12px 26px;
+    border-radius: 999px;
+
+    background: #8A3B32;
+    color: #E8DCC5;
+
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    border: 1px solid rgba(16,49,89,0.25);
+
+    transition: 0.25s ease;
+}
+
+.hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 18px rgba(16,49,89,0.55),
+        0 12px 26px rgba(0,0,0,0.25);
+}
 
 /* ============================================================
-   INITIALIZATION
-   ============================================================ */
+   FOOTER
+============================================================ */
 
-function initAvenmark() {
-    updateDateTime();
-    updateWeather();
+.main-footer {
+    padding: 34px 18px;
+    background: #E8DCC5;
 
-    setInterval(updateDateTime, 1000);
-    setInterval(updateWeather, 600000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 
-    initGridParallax();
-    initImageFloat();
-    initManifestoReveal();
-    initButtonFoundation();
+    text-align: center;
 }
 
+.footer-name {
+    font-size: clamp(30px, 5vw, 60px);
+    font-weight: 700;
+    text-transform: uppercase;
+}
 
-/* ------------------------------------------------------------
-   BOOTSTRAP
-   ------------------------------------------------------------ */
-window.addEventListener("load", initAvenmark);
+.footer-tagline {
+    font-size: clamp(12px, 1.4vw, 16px);
+    opacity: 0.85;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-owner,
+.footer-weather-line,
+.footer-time,
+.footer-copyright {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.footer-owner {
+    text-decoration: none;
+}
+
+.footer-owner:hover {
+    opacity: 0.7;
+}
+
+.footer-weather-line,
+.footer-copyright {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-divider {
+    opacity: 0.6;
+}
