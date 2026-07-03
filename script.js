@@ -1,5 +1,5 @@
 /* ============================================================
-   AVENMARK DIGITAL — FULL INTERACTION SCRIPT
+   AVENMARK DIGITAL — FINAL INTERACTION SCRIPT
    Spider‑web grid • Suspended images • Monumental manifesto
    ============================================================ */
 
@@ -85,21 +85,21 @@ function initGridParallax() {
     if (!grid) return;
 
     window.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 10;
-        const y = (e.clientY / window.innerHeight - 0.5) * 10;
+        const x = (e.clientX / window.innerWidth - 0.5) * 12;
+        const y = (e.clientY / window.innerHeight - 0.5) * 12;
 
         grid.style.transform = `translate(${x}px, ${y}px)`;
     });
 
     window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY * 0.1;
+        const scrollY = window.scrollY * 0.15;
         grid.style.transform = `translateY(${scrollY}px)`;
     });
 }
 
 
 /* ============================================================
-   SUSPENDED IMAGE FLOATING
+   SUSPENDED IMAGE FLOATING (680px max)
    ============================================================ */
 
 function initImageFloat() {
@@ -109,8 +109,8 @@ function initImageFloat() {
     if (!topImg || !bottomImg) return;
 
     window.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 8;
-        const y = (e.clientY / window.innerHeight - 0.5) * 8;
+        const x = (e.clientX / window.innerWidth - 0.5) * 10;
+        const y = (e.clientY / window.innerHeight - 0.5) * 10;
 
         topImg.style.transform = `translate(${x}px, ${y}px) rotate(-2deg)`;
         bottomImg.style.transform = `translate(${-x}px, ${-y}px) rotate(2deg)`;
@@ -126,6 +126,12 @@ function initManifestoReveal() {
     const lines = document.querySelectorAll(".manifesto-line");
     if (!lines.length) return;
 
+    lines.forEach((line) => {
+        line.style.opacity = "0";
+        line.style.transform = "translateY(40px)";
+        line.style.transition = "all 0.8s ease";
+    });
+
     const reveal = () => {
         lines.forEach((line, i) => {
             setTimeout(() => {
@@ -134,12 +140,6 @@ function initManifestoReveal() {
             }, i * 250);
         });
     };
-
-    lines.forEach((line) => {
-        line.style.opacity = "0";
-        line.style.transform = "translateY(40px)";
-        line.style.transition = "all 0.8s ease";
-    });
 
     window.addEventListener("load", reveal);
 }
@@ -163,7 +163,7 @@ function initButtonFoundation() {
     };
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > window.innerHeight * 0.3) {
+        if (window.scrollY > window.innerHeight * 0.15) {
             revealLower();
         }
     });
