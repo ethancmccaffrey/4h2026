@@ -1,0 +1,1098 @@
+/* ==========================================================
+   ETHAN MCCAFFREY WEBSITE
+   FINAL POLISHED STYLE SYSTEM V3
+========================================================== */
+
+
+/* ==========================================================
+   GLOBAL RESET
+========================================================== */
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background-color: #E8DCC5;
+
+    color: #103159;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-family: "Montserrat", sans-serif;
+
+}
+
+
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+
+
+/* ==========================================================
+   FONT SYSTEM
+========================================================== */
+
+
+h1,
+h2,
+h3,
+.name,
+.slogan,
+.nav-item,
+.footer-name,
+.footer-tagline,
+.hero-button {
+
+    font-family: "Lovelo", "Montserrat", sans-serif;
+
+    font-weight: 700;
+
+}
+
+
+
+p,
+li {
+
+    font-family: "Montserrat", sans-serif;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* ==========================================================
+   MAIN STRUCTURE
+========================================================== */
+
+
+.page-content {
+
+    flex: 1;
+
+    padding-top: 105px;
+
+}
+
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+
+.main-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+
+    width: 100%;
+
+
+    z-index: 1000;
+
+
+    background-color: #E8DCC5;
+
+
+    display: grid;
+
+
+    grid-template-columns: 1fr auto;
+
+
+    align-items: center;
+
+
+    padding: 12px 24px;
+
+}
+
+
+
+.header-left {
+
+    display: flex;
+
+    align-items: center;
+
+
+    gap: 16px;
+
+}
+
+
+
+.header-logo {
+
+    height: clamp(45px, 6vw, 75px);
+
+    width: auto;
+
+}
+
+
+
+.title-block {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+
+.name {
+
+    color: #103159;
+
+    font-size: clamp(16px, 2.3vw, 30px);
+
+    line-height: 1;
+
+}
+
+
+
+.slogan {
+
+    color: #103159;
+
+    font-size: clamp(12px, 1.5vw, 18px);
+
+    margin-top: 5px;
+
+}
+
+
+
+.header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: clamp(15px, 2vw, 35px);
+
+}
+
+
+
+.nav-item {
+
+    color: #103159;
+
+    text-transform: uppercase;
+
+    font-size: clamp(12px, 1.4vw, 18px);
+
+    transition: 0.25s ease;
+
+}
+
+
+
+.nav-item:hover {
+
+    color: #8A3B32;
+
+}
+
+ 
+/* ==========================================================
+   HERO SECTION
+========================================================== */
+
+
+.hero-section {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+
+.hero-image {
+
+    width: 100%;
+
+    height: calc(100vh - 105px);
+
+    min-height: 400px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+}
+
+
+
+.welcome-text {
+
+    margin-top: 35px;
+
+    color: #103159;
+
+    font-size: clamp(25px, 3vw, 42px);
+
+    font-weight: 700;
+
+    font-style: italic;
+
+}
+
+
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-top: 35px;
+
+}
+
+
+
+.hero-button {
+
+    background-color: #8A3B32;
+
+    color: #E8DCC5;
+
+    padding: 14px 38px;
+
+    border-radius: 999px;
+
+    text-transform: uppercase;
+
+    font-size: clamp(14px, 1.5vw, 20px);
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
+
+}
+
+
+
+.hero-button:hover {
+
+    transform: translateY(-3px);
+
+    opacity: 0.9;
+
+}
+
+
+
+/* ==========================================================
+   CONTENT SECTIONS
+========================================================== */
+
+
+.content-section {
+
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    padding: 85px 0;
+
+}
+
+
+
+.section-heading {
+
+    color: #103159;
+
+    text-align: center;
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    letter-spacing: 2px;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+/* ==========================================================
+   ABOUT SECTION
+========================================================== */
+
+
+.section-text {
+
+    max-width: 900px;
+
+    margin: 45px auto;
+
+    text-align: center;
+
+}
+
+
+
+.section-text p {
+
+    color: #103159;
+
+    font-size: clamp(15px, 1.5vw, 18px);
+
+    margin-bottom: 25px;
+
+}
+
+
+
+/* ==========================================================
+   IMAGE SYSTEM
+   TWO COLUMN LAYOUT
+========================================================== */
+
+
+.photo-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+
+
+.photo-grid img {
+
+    width: 100%;
+
+    aspect-ratio: 3 / 2;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 20px rgba(16, 49, 89, 0.15);
+
+}
+
+
+
+/* ==========================================================
+   ABOUT PHOTO CONTROL
+========================================================== */
+
+
+#about .photo-grid {
+
+    margin-bottom: 35px;
+
+}
+
+
+
+#about .photo-grid img {
+
+    aspect-ratio: 3 / 2;
+
+    object-position: center top;
+
+}
+
+
+
+/* ==========================================================
+   4-H JOURNEY
+========================================================== */
+
+
+.journey-year {
+
+    background-color: rgba(16, 49, 89, 0.05);
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    margin-bottom: 55px;
+
+}
+
+
+
+.year-heading {
+
+    color: #103159;
+
+    text-align: center;
+
+    font-size: clamp(28px, 3vw, 42px);
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.journey-grid {
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.journey-grid img {
+
+    aspect-ratio: 3 / 2;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+}
+
+ 
+/* ==========================================================
+   IMAGE CROP ADJUSTMENTS
+   Individual fixes for important subjects
+========================================================== */
+
+
+/* 2024 image where Ethan is on the right */
+
+.journey-year:nth-of-type(2)
+.journey-grid img:nth-child(4) {
+
+    object-position: 70% top;
+
+}
+
+
+
+/* 2025 image where top of hair was cropped */
+
+.journey-year:nth-of-type(3)
+.journey-grid img:nth-child(5) {
+
+    object-position: center top;
+
+}
+
+
+
+/* 2025 image where Ethan is on the right */
+
+.journey-year:nth-of-type(3)
+.journey-grid img:nth-child(6) {
+
+    object-position: 70% center;
+
+}
+
+
+
+/* ==========================================================
+   JOURNEY TEXT
+========================================================== */
+
+
+.journey-content {
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.journey-content p {
+
+    text-align: center;
+
+    font-size: clamp(15px, 1.4vw, 18px);
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.journey-content ul {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding-left: 25px;
+
+}
+
+
+
+.journey-content li {
+
+    color: #103159;
+
+    margin-bottom: 12px;
+
+    font-size: clamp(14px, 1.3vw, 17px);
+
+}
+
+
+
+/* ==========================================================
+   ETHAN'S MESSAGE
+========================================================== */
+
+
+.message-section {
+
+    text-align: center;
+
+}
+
+
+
+.message-intro {
+
+    max-width: 900px;
+
+    margin: 0 auto 55px;
+
+    color: #103159;
+
+    font-size: clamp(16px, 1.5vw, 20px);
+
+    font-weight: 700;
+
+}
+
+
+
+.message-block {
+
+    max-width: 900px;
+
+    margin: 0 auto 40px;
+
+    padding: 35px;
+
+    background-color: rgba(138, 59, 50, 0.08);
+
+    border-radius: 22px;
+
+}
+
+
+
+.message-block h3 {
+
+    color: #103159;
+
+    font-size: clamp(22px, 2.5vw, 34px);
+
+    margin-bottom: 18px;
+
+}
+
+
+
+.message-block p {
+
+    color: #103159;
+
+    font-size: clamp(15px, 1.4vw, 18px);
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.message-closing {
+
+    color: #8A3B32;
+
+    font-family: "Lovelo", "Montserrat", sans-serif;
+
+    font-size: clamp(26px, 3.5vw, 48px);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    margin-top: 65px;
+
+}
+
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+
+.main-footer {
+
+    margin-top: 75px;
+
+    padding: 45px 20px;
+
+    background-color: #E8DCC5;
+
+    color: #103159;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 12px;
+
+}
+
+
+
+.footer-name {
+
+    font-size: clamp(34px, 5vw, 60px);
+
+    line-height: 1;
+
+}
+
+
+
+.footer-tagline {
+
+    font-size: clamp(12px, 1.5vw, 17px);
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.footer-weather-line {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+
+.footer-time {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+
+.footer-copyright {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+
+.footer-copyright a {
+
+    color: #103159;
+
+}
+
+
+
+.footer-copyright a:hover {
+
+    color: #8A3B32;
+
+}
+
+
+
+.footer-divider {
+
+    opacity: 0.6;
+
+}
+
+ 
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+
+/* ==========================================================
+   TABLETS
+========================================================== */
+
+
+@media (max-width: 900px) {
+
+
+    .main-header {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        padding: 12px 18px;
+
+    }
+
+
+
+    .header-left {
+
+        justify-content: center;
+
+    }
+
+
+
+    .header-right {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+
+
+    .page-content {
+
+        padding-top: 145px;
+
+    }
+
+
+
+    .content-section {
+
+        width: 90%;
+
+    }
+
+
+
+}
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+
+@media (max-width: 600px) {
+
+
+    .main-header {
+
+        padding: 10px 12px;
+
+    }
+
+
+
+    .header-left {
+
+        gap: 10px;
+
+    }
+
+
+
+    .header-logo {
+
+        height: 48px;
+
+    }
+
+
+
+    .name {
+
+        font-size: 16px;
+
+    }
+
+
+
+    .slogan {
+
+        font-size: 11px;
+
+    }
+
+
+
+    .header-right {
+
+        gap: 10px;
+
+    }
+
+
+
+    .nav-item {
+
+        font-size: 11px;
+
+    }
+
+
+
+    .page-content {
+
+        padding-top: 155px;
+
+    }
+
+
+
+    .content-section {
+
+        width: 90%;
+
+        padding: 60px 0;
+
+    }
+
+
+
+    .hero-image {
+
+        height: 350px;
+
+        object-position: center;
+
+    }
+
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+
+    .hero-button {
+
+        width: min(280px, 90%);
+
+    }
+
+
+
+    /* Keep photo galleries two across */
+
+    .photo-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+
+    .photo-grid img {
+
+        aspect-ratio: 3 / 2;
+
+        border-radius: 12px;
+
+    }
+
+
+
+    #about .photo-grid {
+
+        gap: 10px;
+
+    }
+
+
+
+    .journey-year {
+
+        padding: 24px 16px;
+
+        border-radius: 18px;
+
+    }
+
+
+
+    .journey-grid {
+
+        gap: 12px;
+
+    }
+
+
+
+    .journey-grid img {
+
+        aspect-ratio: 3 / 2;
+
+    }
+
+
+
+    .message-block {
+
+        padding: 25px 18px;
+
+    }
+
+
+
+    .message-closing {
+
+        font-size: 25px;
+
+    }
+
+
+
+    .footer-name {
+
+        font-size: 32px;
+
+    }
+
+
+}
+
+
+
+/* ==========================================================
+   SMALL MOBILE PHONES
+========================================================== */
+
+
+@media (max-width: 380px) {
+
+
+    .photo-grid {
+
+        gap: 8px;
+
+    }
+
+
+
+    .journey-year {
+
+        padding: 20px 12px;
+
+    }
+
+
+
+    .nav-item {
+
+        font-size: 10px;
+
+    }
+
+
+
+}
