@@ -1,6 +1,6 @@
 /* ==========================================================
-   ETHAN MCCAFFREY WEBSITE
-   FINAL STYLE SYSTEM V5 — FULL CLEAN REWRITE
+   ETHAN MCCAFFREY WEBSITE — STYLE SYSTEM V6
+   Full-image collage system (no cropping)
 ========================================================== */
 
 
@@ -214,37 +214,85 @@ p, li {
 
 
 /* ==========================================================
-   IMAGE GRID SYSTEM
+   FULL-IMAGE COLLAGE SYSTEM (NO CROPPING)
 ========================================================== */
 
 .photo-grid,
 .journey-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    align-items: start;
 }
 
-.photo-grid img {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(16, 49, 89, 0.15);
-}
-
+.photo-grid img,
 .journey-grid img {
     width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(16, 49, 89, 0.15);
+    height: auto;                 /* FULL IMAGE ALWAYS */
+    object-fit: contain;          /* No cropping */
+    object-position: center;      /* Center full photo */
+    border-radius: 14px;
+    padding: 4px;                 /* Clean frame */
+    background-color: #ffffff;    /* Professional look */
+    box-shadow: 0 4px 12px rgba(16, 49, 89, 0.12);
+}
+
+/* Larger screens */
+@media (min-width: 900px) {
+    .photo-grid,
+    .journey-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+    .photo-grid,
+    .journey-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+    }
+
+    .photo-grid img,
+    .journey-grid img {
+        border-radius: 10px;
+        padding: 3px;
+    }
 }
 
 
 /* ==========================================================
-   JOURNEY YEAR BLOCKS
+   OPTIONAL FACE-SAFE POSITIONING (NO CROPPING)
+========================================================== */
+
+.journey-year:nth-of-type(1) .journey-grid img:nth-child(1) {
+    object-position: 40% center;
+}
+
+.journey-year:nth-of-type(1) .journey-grid img:nth-child(2) {
+    object-position: 60% center;
+}
+
+.journey-year:nth-of-type(2) .journey-grid img:nth-child(4) {
+    object-position: 80% center;
+}
+
+.journey-year:nth-of-type(3) .journey-grid img:nth-child(2) {
+    object-position: 85% center;
+}
+
+.journey-year:nth-of-type(3) .journey-grid img:nth-child(5) {
+    object-position: center top;
+}
+
+.journey-year:nth-of-type(3) .journey-grid img:nth-child(6) {
+    object-position: 70% center;
+}
+
+
+/* ==========================================================
+   JOURNEY TEXT
 ========================================================== */
 
 .journey-year {
@@ -260,54 +308,6 @@ p, li {
     font-size: clamp(28px, 3vw, 42px);
     margin-bottom: 35px;
 }
-
-
-/* ==========================================================
-   FINAL PHOTO POSITIONING (2023 / 2024 / 2025)
-========================================================== */
-
-/* ---------- 2023 ---------- */
-
-/* 2023 Image 1 — Ethan touches left edge */
-.journey-year:nth-of-type(1) .journey-grid img:nth-child(1) {
-    object-position: 5% center;
-}
-
-/* 2023 Image 2 — Ethan near right edge */
-.journey-year:nth-of-type(1) .journey-grid img:nth-child(2) {
-    object-position: 95% center;
-}
-
-
-/* ---------- 2024 ---------- */
-
-/* 2024 Image 4 — focus on other person, Ethan barely visible */
-.journey-year:nth-of-type(2) .journey-grid img:nth-child(4) {
-    object-position: 88% center;
-}
-
-
-/* ---------- 2025 ---------- */
-
-/* 2025 Image 2 — Ethan barely visible on right */
-.journey-year:nth-of-type(3) .journey-grid img:nth-child(2) {
-    object-position: 95% center;
-}
-
-/* 2025 Image 5 — preserve hair/head */
-.journey-year:nth-of-type(3) .journey-grid img:nth-child(5) {
-    object-position: center top;
-}
-
-/* 2025 Image 6 — Ethan visible on right */
-.journey-year:nth-of-type(3) .journey-grid img:nth-child(6) {
-    object-position: 70% center;
-}
-
-
-/* ==========================================================
-   JOURNEY TEXT
-========================================================== */
 
 .journey-content {
     max-width: 850px;
@@ -515,22 +515,6 @@ p, li {
         width: min(280px, 90%);
     }
 
-    .photo-grid,
-    .journey-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .photo-grid img {
-        aspect-ratio: 4 / 5;
-        border-radius: 12px;
-    }
-
-    .journey-grid img {
-        aspect-ratio: 3 / 4;
-        border-radius: 12px;
-    }
-
     .journey-year {
         padding: 25px 16px;
         border-radius: 18px;
@@ -550,11 +534,6 @@ p, li {
 }
 
 @media (max-width: 380px) {
-    .photo-grid,
-    .journey-grid {
-        gap: 8px;
-    }
-
     .journey-year {
         padding: 20px 12px;
     }
