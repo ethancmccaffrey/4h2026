@@ -582,66 +582,64 @@ li {
 .journey-year:nth-of-type(3)
 .journey-grid img:nth-child(6) {
 
-    object-position: 70% center;
+    object-position: 70% 
 
-}
-
-/* ==========================================================
-   FINAL PHOTO CROP ADJUSTMENTS
+       /* ==========================================================
+   FINAL PHOTO POSITIONING
 ========================================================== */
 
 
-/* ===========================
-   2023 PHOTOS
-=========================== */
+/* ---------- 2023 ---------- */
 
-
-/* 2023 Image 1 - Ethan on left */
+/* Image 1
+   Ethan should touch the left edge without being cut off.
+*/
 
 .journey-year:nth-of-type(1)
 .journey-grid img:nth-child(1) {
 
-    object-position: 25% center;
+    object-position: 5% center;
 
 }
 
 
-
-/* 2023 Image 2 - Ethan on right */
+/* Image 2
+   Ethan should be close to the right edge.
+*/
 
 .journey-year:nth-of-type(1)
 .journey-grid img:nth-child(2) {
 
-    object-position: 75% center;
+    object-position: 95% center;
 
 }
 
 
+/* ---------- 2024 ---------- */
 
-/* ===========================
-   2025 PHOTOS
-=========================== */
+/* Image 4 (IMG_4399.jpeg)
+   Focus mostly on the other person.
+   Ethan should only barely appear on the right.
+*/
+
+.journey-year:nth-of-type(2)
+.journey-grid img:nth-child(4) {
+
+    object-position: 88% center;
+
+}
 
 
-/* 2025 Image 2 - Ethan on right */
+/* ---------- 2025 ---------- */
+
+/* Image 2
+   Ethan should barely appear on the right side.
+*/
 
 .journey-year:nth-of-type(3)
 .journey-grid img:nth-child(2) {
 
-    object-position: 75% center;
-
-}
-
-
-
-/* 2025 Image 6 - wider group photo */
-
-.journey-year:nth-of-type(3)
-.journey-grid img:nth-child(6) {
-
-    object-position: center center;
-
-    aspect-ratio: 16 / 10;
+    object-position: 95% center;
 
 }
 
