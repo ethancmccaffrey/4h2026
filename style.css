@@ -39,6 +39,33 @@ a {
 
 
 /* ==========================================================
+   VERSE LABEL + BUBBLE
+========================================================== */
+
+.verse-label {
+    text-align: center;
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 600;
+    color: #103159;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.verse-bubble {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 35px auto;
+    width: min(600px, 90%);
+    box-shadow: 0 4px 12px rgba(16, 49, 89, 0.12);
+    color: #103159;
+    font-size: clamp(15px, 1.4vw, 18px);
+    text-align: center;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
    FONT SYSTEM
 ========================================================== */
 
@@ -143,10 +170,6 @@ p, li {
     object-position: center;
 }
 
-/* ==========================================================
-   WELCOME TEXT + BUTTONS (RESTORED)
-========================================================== */
-
 .welcome-text {
     margin-top: 35px;
     color: #103159;
@@ -159,8 +182,8 @@ p, li {
 .hero-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
-    gap: 22px;
+    flex-wrap: wrap;
+    gap: 18px;
     margin-top: 35px;
 }
 
@@ -172,14 +195,17 @@ p, li {
     text-transform: uppercase;
     font-size: clamp(14px, 1.5vw, 20px);
     transition: transform 0.25s ease, opacity 0.25s ease;
-    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-button:hover {
     transform: translateY(-3px);
     opacity: 0.9;
 }
-
 
 /* ==========================================================
    CONTENT SECTIONS
@@ -292,7 +318,6 @@ p, li {
     object-position: 70% center;
 }
 
-
 /* ==========================================================
    JOURNEY TEXT
 ========================================================== */
@@ -367,10 +392,6 @@ p, li {
 }
 
 .message-block p {
-    color: #103159;
-    font-size: clamp(15px, 1.4vw,
-
-                     .message-block p {
     color: #103159;
     font-size: clamp(15px, 1.4vw, 18px);
     margin-bottom: 20px;
@@ -451,7 +472,6 @@ p, li {
 .footer-divider {
     opacity: 0.6;
 }
-
 
 /* ==========================================================
    RESPONSIVE DESIGN
