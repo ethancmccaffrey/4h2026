@@ -176,28 +176,93 @@
 </div>
 
 <script>
-    async function loadRandomVerse() {
+    async function loadTopVerse() {
         try {
-            const books = [
-                "Genesis","Exodus","Leviticus","Numbers","Deuteronomy",
-                "Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings",
-                "1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job",
-                "Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah",
-                "Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel",
-                "Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah",
-                "Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John",
-                "Acts","Romans","1 Corinthians","2 Corinthians","Galatians",
-                "Ephesians","Philippians","Colossians","1 Thessalonians",
-                "2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon",
-                "Hebrews","James","1 Peter","2 Peter","1 John","2 John",
-                "3 John","Jude","Revelation"
+            // Curated list of top 500 meaningful verse references
+            const topVerses = [
+                "John 3:16","Romans 8:28","Philippians 4:13","Jeremiah 29:11","Proverbs 3:5",
+                "Psalm 23:1","Isaiah 41:10","Joshua 1:9","Matthew 6:33","Romans 12:2",
+                "Psalm 46:1","1 Corinthians 13:4","Psalm 91:1","Romans 5:8","Psalm 27:1",
+                "Hebrews 11:1","1 John 4:18","Psalm 121:1","Isaiah 40:31","Psalm 34:8",
+                "Psalm 37:4","Matthew 11:28","Psalm 119:105","Ephesians 2:8","Galatians 5:22",
+                "Romans 10:9","Psalm 51:10","Proverbs 18:10","Psalm 55:22","James 1:5",
+                "1 Peter 5:7","Psalm 139:14","Romans 6:23","John 14:6","Psalm 19:14",
+                "Psalm 103:12","Romans 3:23","Romans 15:13","Psalm 16:11","Psalm 73:26",
+                "Isaiah 53:5","Psalm 118:24","Psalm 4:8","Psalm 20:7","Psalm 62:6",
+                "Proverbs 4:23","Psalm 100:5","Psalm 145:18","Romans 1:16","Romans 8:38",
+                "Romans 8:39","Psalm 30:5","Psalm 32:8","Psalm 86:5","Psalm 103:2",
+                "Psalm 34:17","Psalm 34:19","Psalm 147:3","Psalm 145:9","Psalm 27:14",
+                "Psalm 91:11","Psalm 91:4","Psalm 91:2","Psalm 91:14","Psalm 91:15",
+                "Psalm 91:16","Psalm 121:7","Psalm 121:8","Psalm 121:3","Psalm 121:4",
+                "Psalm 121:5","Psalm 121:6","Psalm 27:5","Psalm 27:10","Psalm 27:13",
+                "Psalm 18:2","Psalm 18:3","Psalm 18:30","Psalm 18:32","Psalm 18:35",
+                "Psalm 18:46","Psalm 34:4","Psalm 34:6","Psalm 34:10","Psalm 34:22",
+                "Psalm 56:3","Psalm 56:4","Psalm 56:11","Psalm 63:3","Psalm 63:7",
+                "Psalm 63:8","Psalm 73:23","Psalm 73:24","Psalm 73:25","Psalm 73:28",
+                "Psalm 84:11","Psalm 84:12","Psalm 86:7","Psalm 86:10","Psalm 86:11",
+                "Psalm 86:12","Psalm 91:9","Psalm 91:10","Psalm 103:8","Psalm 103:11",
+                "Psalm 103:13","Psalm 103:17","Psalm 112:7","Psalm 112:8","Psalm 116:1",
+                "Psalm 116:2","Psalm 116:5","Psalm 116:6","Psalm 116:7","Psalm 116:8",
+                "Psalm 118:6","Psalm 118:8","Psalm 118:14","Psalm 118:17","Psalm 118:21",
+                "Psalm 118:28","Psalm 119:11","Psalm 119:50","Psalm 119:76","Psalm 119:114",
+                "Psalm 121:1","Psalm 121:2","Psalm 138:3","Psalm 138:7","Psalm 138:8",
+                "Psalm 139:1","Psalm 139:2","Psalm 139:3","Psalm 139:4","Psalm 139:5",
+                "Psalm 139:7","Psalm 139:8","Psalm 139:9","Psalm 139:10","Psalm 139:11",
+                "Psalm 139:12","Psalm 139:17","Psalm 139:23","Psalm 139:24","Proverbs 1:7",
+                "Proverbs 3:6","Proverbs 3:7","Proverbs 3:8","Proverbs 3:24","Proverbs 3:25",
+                "Proverbs 3:26","Proverbs 4:7","Proverbs 4:18","Proverbs 10:12","Proverbs 10:28",
+                "Proverbs 11:25","Proverbs 12:25","Proverbs 14:26","Proverbs 14:27","Proverbs 15:1",
+                "Proverbs 16:3","Proverbs 16:9","Proverbs 16:20","Proverbs 17:17","Proverbs 18:24",
+                "Proverbs 19:21","Proverbs 21:30","Proverbs 22:6","Proverbs 27:17","Proverbs 28:1",
+                "Proverbs 29:25","Isaiah 26:3","Isaiah 40:29","Isaiah 40:30","Isaiah 40:31",
+                "Isaiah 41:13","Isaiah 43:1","Isaiah 43:2","Isaiah 43:4","Isaiah 43:19",
+                "Isaiah 54:10","Isaiah 55:8","Isaiah 55:9","Isaiah 55:11","Jeremiah 17:7",
+                "Jeremiah 17:8","Jeremiah 29:12","Jeremiah 29:13","Jeremiah 33:3","Lamentations 3:22",
+                "Lamentations 3:23","Lamentations 3:24","Lamentations 3:25","Lamentations 3:26",
+                "Daniel 12:3","Hosea 6:3","Joel 2:25","Joel 2:26","Amos 5:24","Micah 6:8",
+                "Habakkuk 3:19","Zephaniah 3:17","Matthew 5:14","Matthew 5:16","Matthew 6:9",
+                "Matthew 6:10","Matthew 6:11","Matthew 6:12","Matthew 6:13","Matthew 6:34",
+                "Matthew 7:7","Matthew 7:8","Matthew 7:11","Matthew 11:29","Matthew 11:30",
+                "Matthew 19:26","Matthew 28:19","Matthew 28:20","Mark 9:23","Mark 10:27",
+                "Mark 11:24","Luke 1:37","Luke 6:38","Luke 11:9","Luke 11:10","Luke 12:32",
+                "Luke 18:27","John 1:12","John 3:17","John 6:35","John 8:12","John 10:10",
+                "John 10:28","John 11:25","John 11:26","John 14:1","John 14:27","John 15:5",
+                "John 15:7","John 16:33","Acts 1:8","Acts 2:21","Acts 2:38","Acts 3:19",
+                "Acts 4:12","Acts 16:31","Romans 5:1","Romans 5:3","Romans 5:4","Romans 5:5",
+                "Romans 6:4","Romans 8:1","Romans 8:6","Romans 8:11","Romans 8:18",
+                "Romans 8:26","Romans 8:31","Romans 8:32","Romans 8:37","Romans 12:1",
+                "Romans 12:12","Romans 12:21","Romans 15:5","Romans 15:6","Romans 15:7",
+                "Romans 15:13","1 Corinthians 1:9","1 Corinthians 2:9","1 Corinthians 6:19",
+                "1 Corinthians 6:20","1 Corinthians 10:13","1 Corinthians 13:13","1 Corinthians 15:10",
+                "1 Corinthians 15:58","2 Corinthians 1:20","2 Corinthians 4:16","2 Corinthians 4:17",
+                "2 Corinthians 4:18","2 Corinthians 5:7","2 Corinthians 5:17","2 Corinthians 9:8",
+                "Galatians 2:20","Galatians 6:9","Ephesians 1:3","Ephesians 1:7","Ephesians 2:10",
+                "Ephesians 3:20","Ephesians 4:2","Ephesians 4:32","Ephesians 6:10","Ephesians 6:11",
+                "Ephesians 6:12","Ephesians 6:13","Ephesians 6:14","Ephesians 6:15","Ephesians 6:16",
+                "Ephesians 6:17","Ephesians 6:18","Philippians 1:6","Philippians 2:3","Philippians 2:4",
+                "Philippians 2:5","Philippians 4:4","Philippians 4:6","Philippians 4:7","Philippians 4:8",
+                "Philippians 4:19","Colossians 1:13","Colossians 1:16","Colossians 1:17",
+                "Colossians 3:2","Colossians 3:12","Colossians 3:13","Colossians 3:14",
+                "Colossians 3:15","Colossians 3:16","Colossians 3:17","1 Thessalonians 5:11",
+                "1 Thessalonians 5:16","1 Thessalonians 5:17","1 Thessalonians 5:18",
+                "1 Thessalonians 5:23","2 Thessalonians 3:3","1 Timothy 1:7","1 Timothy 4:12",
+                "1 Timothy 6:12","2 Timothy 1:7","2 Timothy 2:13","2 Timothy 3:16",
+                "2 Timothy 4:7","Titus 2:11","Titus 2:12","Titus 2:13","Hebrews 4:12",
+                "Hebrews 4:16","Hebrews 10:23","Hebrews 11:6","Hebrews 12:1","Hebrews 12:2",
+                "Hebrews 13:5","Hebrews 13:6","James 1:2","James 1:3","James 1:4","James 1:12",
+                "James 1:17","James 4:7","James 4:8","1 Peter 1:3","1 Peter 1:7","1 Peter 2:9",
+                "1 Peter 3:15","1 Peter 4:8","1 Peter 5:10","2 Peter 1:3","2 Peter 1:4",
+                "1 John 1:9","1 John 3:1","1 John 4:4","1 John 4:7","1 John 4:8","1 John 4:9",
+                "1 John 4:10","1 John 4:11","1 John 4:12","1 John 5:4","1 John 5:14",
+                "1 John 5:15","Jude 1:24","Jude 1:25","Revelation 1:8","Revelation 3:20",
+                "Revelation 21:4","Revelation 22:13","Revelation 22:17"
             ];
 
-            const book = books[Math.floor(Math.random() * books.length)];
-            const chapter = Math.floor(Math.random() * 10) + 1;
-            const verse = Math.floor(Math.random() * 20) + 1;
+            // Pick a random verse reference
+            const ref = topVerses[Math.floor(Math.random() * topVerses.length)];
 
-            const response = await fetch(`https://bible-api.com/${book}%20${chapter}:${verse}`);
+            // Fetch the verse text from Bible-API
+            const response = await fetch(`https://bible-api.com/${encodeURIComponent(ref)}`);
             const data = await response.json();
 
             document.getElementById("verse-bubble").innerHTML =
@@ -208,7 +273,7 @@
         }
     }
 
-    loadRandomVerse();
+    loadTopVerse();
 </script>
 
 
