@@ -146,6 +146,8 @@ p, li {
 }
 
 .nav-item:hover {
+    color: #
+   .nav-item:hover {
     color: #8A3B32;
 }
 
@@ -153,11 +155,8 @@ p, li {
 /* ==========================================================
    HERO SECTION
 ========================================================== */
+
 .hero-section {
-  padding-top: clamp(80px, 10vh, 120px);
-}
-
-
 }
 
 .hero-image {
@@ -209,6 +208,7 @@ p, li {
     margin: 0 auto;
     padding: 90px 0;
 }
+
 
 .section-heading {
     color: #103159;
