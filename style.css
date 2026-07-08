@@ -37,6 +37,11 @@ a {
     text-decoration: none;
 }
 
+
+/* ==========================================================
+   VERSE LABEL + BUBBLE
+========================================================== */
+
 .verse-label {
     text-align: center;
     font-size: clamp(20px, 2vw, 26px);
@@ -215,19 +220,6 @@ p, li {
     margin-bottom: 45px;
 }
 
-.verse-bubble {
-    background-color: #ffffff;
-    border-radius: 14px;
-    padding: 18px 22px;
-    margin: 35px auto;
-    width: min(600px, 90%);
-    box-shadow: 0 4px 12px rgba(16, 49, 89, 0.12);
-    color: #103159;
-    font-size: clamp(15px, 1.4vw, 18px);
-    text-align: center;
-    line-height: 1.6;
-}
-
 
 /* ==========================================================
    ABOUT TEXT
@@ -270,7 +262,6 @@ p, li {
     box-shadow: 0 4px 12px rgba(16, 49, 89, 0.12);
 }
 
-/* Larger screens */
 @media (min-width: 900px) {
     .photo-grid,
     .journey-grid {
@@ -279,7 +270,6 @@ p, li {
     }
 }
 
-/* Smaller screens */
 @media (max-width: 600px) {
     .photo-grid,
     .journey-grid {
