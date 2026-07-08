@@ -619,14 +619,11 @@
 <script>
     async function loadVerse() {
         try {
-            const response = await fetch("https://beta.ourmanna.com/api/v1/verse?format=json");
+            const response = await fetch("https://bible-api.com/john%203:16");
             const data = await response.json();
 
-            const verseText = data.verse.details.text;
-            const verseReference = data.verse.details.reference;
-
             document.getElementById("verse-bubble").innerHTML =
-                `<strong>${verseReference}</strong><br>${verseText}`;
+                `<strong>${data.reference}</strong><br>${data.text}`;
         } catch (error) {
             document.getElementById("verse-bubble").innerHTML =
                 "Verse of the day is unavailable right now.";
@@ -634,6 +631,9 @@
     }
 
     loadVerse();
+</script>
+
+    
 </script>
 </body>
 </html>
